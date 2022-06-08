@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import styles from "./addTask.module.css";
 
 const AddTask = ({ handleAdd }) => {
-  const [task, SetTask] = useState("");
+  const [text, SetText] = useState("");
   const handleClick = () => {
-    handleAdd(task);
-    SetTask("");
+    handleAdd(text);
+    SetText("");
   };
   // NOTE: do not delete `data-testid` key value pair
 
@@ -14,8 +14,8 @@ const AddTask = ({ handleAdd }) => {
       <input
         data-testid="add-task-input"
         type="text"
-        value={task}
-        onChange={({ target }) => SetTask(target.value)}
+        value={text}
+        onChange={(e) => SetText(e.target.value)}
         placeholder="ADD TASK..."
       />
       <button data-testid="add-task-button" onClick={handleClick}>+</button>

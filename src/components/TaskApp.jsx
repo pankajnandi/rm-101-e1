@@ -26,7 +26,7 @@ const TaskApp = ({ task }) => {
   };
 
   const handleChange = (e) => {
-    let newTasks = tasks.reduce((acc, cur) => {
+    let a = tasks.reduce((acc, cur) => {
       if (cur.id === e.id) {
         acc.push(e);
       } else {
@@ -34,7 +34,7 @@ const TaskApp = ({ task }) => {
       }
       return acc;
     }, []);
-    setTasks([...newTasks]);
+    setTasks([...a]);
   };
 
   // NOTE: do not delete `data-testid` key value pair
