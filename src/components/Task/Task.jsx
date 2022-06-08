@@ -21,11 +21,14 @@ const Task = ({task,handleDel,handleChange}) => {
   // NOTE: do not delete `data-testid` key value pair
   return (
     <li data-testid="task" className={styles.task}>
+      <div className={styles.flex}>
       <input type="checkbox" data-testid="task-checkbox" onChange={toggle} checked={task.done}/>
-      <div data-testid="task-text">{task.text}</div>
+      <div data-testid="task-text" className={task.done? styles.done:styles.notDone}>{task.text}</div>
       {/* Counter here */}
+      
       <Counter count={task.count} handleCount={handleCount}/>
       <button data-testid="task-remove-button" onClick={() => handleDel(task.id)}>X</button>
+      </div>
     </li>
   );
 };

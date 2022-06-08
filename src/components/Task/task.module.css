@@ -1,3 +1,12 @@
 .task {
   /* Sample  */
+  list-style: none;
+  margin-bottom:20px ;
+}
+.done{
+  text-decoration: line-through;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
 }

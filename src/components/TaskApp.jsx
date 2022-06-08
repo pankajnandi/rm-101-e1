@@ -2,36 +2,35 @@ import React, { useState } from "react";
 
 import styles from "./taskApp.module.css";
 import { AddTask } from "./AddTask";
-import  {Tasks}  from "./Tasks";
+import { Tasks } from "./Tasks";
 import { TaskHeader } from "./TaskHeader";
 import { v4 } from "uuid";
 const TaskApp = ({ task }) => {
   const [tasks, setTasks] = useState(task);
-// console.log(tasks)
+  // console.log(tasks)
   const handleAdd = (e) => {
     if (e && !tasks.some((task) => task.text === e)) {
-      const newTaskObj = {
+      const taskobj = {
         id: v4(),
         text: e,
         done: false,
         count: 1,
       };
-      setTasks([...tasks, newTaskObj]);
+      setTasks([...tasks, taskobj]);
     }
   };
 
   const handleDel = (e) => {
-    let newTasks = tasks.filter((task) => task.id !== e);
-    console.log(newTasks);
-    setTasks(newTasks);
+    let a = tasks.filter((el) => el.id !== e);
+    setTasks(a);
   };
 
   const handleChange = (e) => {
-    let newTasks = tasks.reduce((acc, crr) => {
-      if (crr.id === e.id) {
+    let newTasks = tasks.reduce((acc, cur) => {
+      if (cur.id === e.id) {
         acc.push(e);
       } else {
-        acc.push(crr);
+        acc.push(cur);
       }
       return acc;
     }, []);
@@ -40,7 +39,7 @@ const TaskApp = ({ task }) => {
 
   // NOTE: do not delete `data-testid` key value pair
   return (
-    <div data-testid="task-app" className={styles.taskApp}>
+    <div data-testid="task-app" className={styles.taskApp} id="taskApp">
       {/* Header */}
       <TaskHeader tasks={tasks} />
       {/* Add Task */}

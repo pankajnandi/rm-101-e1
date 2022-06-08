@@ -1,3 +1,9 @@
 .counter {
   /* TODO */
 }
+.counter button{
+  margin: 0px 10px;
+  background-color:blueviolet;
+  border: none;
+  font-size: 25px;
+}
