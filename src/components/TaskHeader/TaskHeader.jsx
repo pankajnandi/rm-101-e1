@@ -1,16 +1,19 @@
 import React from "react";
 import styles from "./taskHeader.module.css";
 
-const TaskHeader = () => {
+const TaskHeader = ({tasks}) => {
   // sample values to be replaced
-  let totalTask = 0;
-  let unCompletedTask = 0;
-
+  let unCompletedTask = tasks.filter((e) => !e.done).length;;
+  
+  let totalTask = tasks.length
+  // ;
+// console.log(tasks)
   // NOTE: do not delete `data-testid` key value pair
   return (
     <div data-testid="task-header" className={styles.taskHeader}>
-      <b data-testid="header-remaining-task">{unCompletedTask}</b>
-      <b data-testid="header-total-task">{totalTask}</b>
+      <h2>TODO LIST</h2>
+      <b data-testid="header-remaining-task">you have {unCompletedTask} of </b>
+      <b data-testid="header-total-task">{totalTask} tasks remaining</b>
     </div>
   );
 };
